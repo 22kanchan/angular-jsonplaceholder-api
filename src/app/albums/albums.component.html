@@ -1,0 +1,21 @@
+<!-- <h1>ALBUMS</h1>
+<ul>
+    <li *ngFor="let albums of albums">
+      <a routerLink="">{{ albums.title }}</a>
+    </li>
+  </ul> -->
+  <div class="container">
+    <h1>Albums</h1>
+    <table class="table table-bordered" >
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+      </tr>
+      <tr *ngFor="let albums of albums">
+        <td>{{ albums.id }}</td>
+        <td>{{ albums.title }}</td>
+        <td>{{ albums.body }}</td>
+      </tr>
+    </table>
+    <ngb-pagination [collectionSize]="albums.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+ </div>

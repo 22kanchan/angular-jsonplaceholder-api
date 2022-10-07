@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Users</h1>
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Website</th>
+    </tr>
+    <tr *ngFor="let Users of users">
+      <td>{{ Users.id }}</td>
+      <td>
+        <a (click)="userDetails(Users.id)">{{Users.name}}</a>
+      </td>
+      <td>{{ Users.email }}</td>
+      <td>{{ Users.phone }}</td> 
+      <td><a href="http://{{ users.website }}">{{ Users.website }}</a></td>
+    </tr>
+    
+  </table>
+  <!-- <ngb-pagination [collectionSize]="10" [(page)]="page" aria-label="Default pagination"></ngb-pagination> -->
+</div>

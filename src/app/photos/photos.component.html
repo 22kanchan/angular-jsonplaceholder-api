@@ -1,0 +1,24 @@
+<!-- <h1>PHOTOS</h1>
+<ul>
+    <li *ngFor="let photos of photos">
+      <a routerLink="">{{ photos.title }}</a>
+  
+      <p>{{ photos.url }}</p>
+      <p>{{ photos.thumbnailUrl }}</p>
+    </li>
+  </ul> -->
+  <div class="container">
+    <h1>Photos</h1>
+    <table class="table table-bordered">
+      <tr>
+        <th>Title</th>
+        <th>Url</th>
+        <th>Thumbnail Url</th>
+      </tr>
+      <tr *ngFor="let photos of photos">
+        <td>{{ photos.title }}</td>
+        <td>{{ photos.url }}</td>
+        <td>{{ photos.thumbnailUrl }}</td>
+      </tr>
+    </table>
+    </div>

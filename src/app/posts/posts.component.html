@@ -1,0 +1,26 @@
+
+<!-- <<ul>
+    <li *ngFor="let posts of posts">
+      <a routerLink="">{{ posts.title }}</a>
+  
+      <p>{{ posts.body }}</p>
+    </li>
+  </ul> -->
+  <div class="container">
+    <h1>POSTS</h1>
+    
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Body</th>
+      </tr>
+      <tr *ngFor="let post of posts">
+        <td>{{ post.id }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.body }}</td>
+      </tr>
+    </table>    
+
+    
+ </div>

@@ -1,0 +1,41 @@
+<nav>
+    <ul>
+      <li>
+        <!-- <a routerLink="" [class.activated]="currentUrl == '/'"> -->
+          <a routerLink="" routerLinkActive="activated" [routerLinkActiveOptions]="{exact:true}">
+          <i class="material-icons">supervised_user_circle</i><span><h4>USER</h4></span>
+        </a>
+      </li>
+      <li>
+          <!-- <a routerLink="posts" [class.activated]="currentUrl == '/posts'"> -->
+            <a routerLink="posts" routerLinkActive="activated" [routerLinkActiveOptions]="{exact:true}">
+            <i class="material-icons">message</i><span><h4>POSTS</h4></span>
+          </a>
+        </li>
+        <li>
+            <!-- <a routerLink="posts" [class.activated]="currentUrl == '/posts'"> -->
+              <a routerLink="albums" routerLinkActive="activated" [routerLinkActiveOptions]="{exact:true}">
+              <i class="material-icons">photo_library</i><span><h4>ALBUM</h4></span>
+            </a>
+          </li>
+          <li>
+            <!-- <a routerLink="posts" [class.activated]="currentUrl == '/posts'">
+              <a routerLink="comments" routerLinkActive="activated" [routerLinkActiveOptions]="{exact:true}">
+              <i class="material-icons">message</i>
+            </a>
+          </li>
+          <li> -->
+            <!-- <a routerLink="posts" [class.activated]="currentUrl == '/posts'"> -->
+              <a routerLink="todos" routerLinkActive="activated" [routerLinkActiveOptions]="{exact:true}">
+              <i class="material-icons">event_note</i><span><h4>TODO's</h4></span>
+            </a>
+          </li>
+          <li>
+            <!-- <a routerLink="posts" [class.activated]="currentUrl == '/posts'"> -->
+              <a routerLink="photos" routerLinkActive="activated" [routerLinkActiveOptions]="{exact:true}">
+              <i class="material-icons">image</i><span><h4>PHOTOS</h4></span>
+            </a>
+          </li>
+    </ul>
+  </nav>
+  
