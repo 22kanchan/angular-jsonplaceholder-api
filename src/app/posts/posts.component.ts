@@ -9,10 +9,7 @@ import { JsondataService } from '../jsondata.service';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  page = 1;
-  pageSize =4;
-  
-  
+  page:number = 1; 
 
   posts: any;
 

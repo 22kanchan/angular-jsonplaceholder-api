@@ -15,12 +15,12 @@
         <th>Title</th>
         <th>Body</th>
       </tr>
-      <tr *ngFor="let post of posts">
+      <tr *ngFor="let post of posts| paginate:{itemsPerPage:10, currentPage: page}">
         <td>{{ post.id }}</td>
         <td>{{ post.title }}</td>
         <td>{{ post.body }}</td>
       </tr>
     </table>    
 
-    
+    <pagination-controls (pageChange)="page=$event"></pagination-controls>    
  </div>

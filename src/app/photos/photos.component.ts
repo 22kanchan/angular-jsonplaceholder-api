@@ -8,7 +8,7 @@ import { JsondataService } from '../jsondata.service';
   styleUrls: ['./photos.component.scss']
 })
 export class PhotosComponent implements OnInit {
-
+  page : number =1;
   photos:any;
   constructor(private data: JsondataService ) { }
 

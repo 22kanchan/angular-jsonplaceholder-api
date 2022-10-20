@@ -12,13 +12,14 @@
     <table class="table table-bordered">
       <tr>
         <th>Title</th>
-        <th>Url</th>
+        <!-- <th>Url</th> -->
         <th>Thumbnail Url</th>
       </tr>
-      <tr *ngFor="let photos of photos">
+      <tr *ngFor="let photos of photos| paginate:{itemsPerPage:10, currentPage: page}">
         <td>{{ photos.title }}</td>
-        <td>{{ photos.url }}</td>
-        <td>{{ photos.thumbnailUrl }}</td>
+        <!-- <td><img [src]="photos.url" /></td> -->
+        <td><img [src]="photos.thumbnailUrl" /></td>
       </tr>
     </table>
+    <pagination-controls (pageChange)="page=$event"></pagination-controls>
     </div>

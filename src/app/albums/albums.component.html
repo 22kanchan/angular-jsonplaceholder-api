@@ -6,16 +6,21 @@
   </ul> -->
   <div class="container">
     <h1>Albums</h1>
+    <div class="form-group">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching by entering any text" autofocus>
+    </div>
     <table class="table table-bordered" >
       <tr>
         <th>ID</th>
         <th>Title</th>
       </tr>
-      <tr *ngFor="let albums of albums">
+      <tr *ngFor="let albums of albums | searchFilter: searchText">
         <td>{{ albums.id }}</td>
         <td>{{ albums.title }}</td>
         <td>{{ albums.body }}</td>
       </tr>
     </table>
-    <ngb-pagination [collectionSize]="albums.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    
+    <!-- <ngb-pagination [collectionSize]="albums.length" [(page)]="page" [pageSize]="pageSize"></ngb-pagination> -->
+    <!-- <pagination-controls (pageChange)="page=$event"></pagination-controls> -->
  </div>

@@ -7,6 +7,7 @@ import { AlbumsComponent } from './albums/albums.component';
 import { PhotosComponent } from './photos/photos.component';
 import { TodosComponent } from './todos/todos.component';
 import { LoginComponent } from './login/login.component';
+import {RegisterComponent} from './register/register.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+  path: 'register',
+  component:RegisterComponent
   }
 
 ];

@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class TodosComponent implements OnInit {
  todos : any;
+ page:number=1;
   constructor(private data: JsondataService) { }
 
   ngOnInit(){

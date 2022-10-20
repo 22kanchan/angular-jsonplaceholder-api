@@ -6,11 +6,11 @@
         <th>Title</th>
         <th>Completed</th>
       </tr>
-      <tr *ngFor="let todos of todos">
+      <tr *ngFor="let todos of todos| paginate:{itemsPerPage:10, currentPage: page}">
         <td>{{ todos.id }}</td>
         <td>{{ todos.title }}</td>
         <td>{{ todos.completed }}</td>
       </tr>
     </table>
-    
+    <pagination-controls (pageChange)="page=$event"></pagination-controls>
  </div>
