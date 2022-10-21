@@ -17,7 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { UsersDetailsComponent } from './users-details/users-details.component';
 
 // Services 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { PhotosComponent } from './photos/photos.component';
@@ -25,6 +25,9 @@ import { TodosComponent } from './todos/todos.component';
 import { RegisterComponent } from './register/register.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SearchFilterPipe } from './search-filter.pipe';
+import { fakeBackendProvider } from './_helpers/fake-backend';
+import { ErrorInterceptor } from './_helpers/error.interceptor';
+import { JwtInterceptor } from './_helpers/jwt.interceptor';
 
 
 @NgModule({
@@ -53,7 +56,13 @@ import { SearchFilterPipe } from './search-filter.pipe';
     NgxPaginationModule,
     MatDialogModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+        // provider used to create fake backend
+        fakeBackendProvider
+  ],
   bootstrap: [AppComponent],
 
 })

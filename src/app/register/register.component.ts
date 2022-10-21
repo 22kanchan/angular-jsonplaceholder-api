@@ -21,15 +21,17 @@ export class RegisterComponent implements OnInit {
  registerForm!: FormGroup;
  loading = false;
  submitted = false;
-  router: any;
+  
 
   constructor(
     private formBuilder:FormBuilder,
     private authenticationService:AuthenticationService,
+    private router:Router,
     private dialog:MatDialog,
     private userService: UserService,
     private alertService: AlertService
-    ) { }
+    ) { if (this.authenticationService.currentUserValue) { 
+      this.router.navigate(['/']);}}
 
   ngOnInit(){
     this.registerForm = this.formBuilder.group({
@@ -58,17 +60,18 @@ get f() { return this.registerForm.controls; }
         }
 console.log("hello",this.registerForm.value);
         this.loading = true;
-        this.userService.register(this.registerForm.value).subscribe((data)=>console.log(data))
-        // .pipe(first())
-            // .subscribe(
-              // (_data: any) => {
-              //       this.alertService.success('Registration successful', true);
-              //       this.router.navigate(['/login']);
-              //   },
-              // (                error: string) => {
-              //       this.alertService.error(error);
-              //       this.loading = false;
-              //   });
+        this.userService.register(this.registerForm.value)
+        // .subscribe((data)=>console.log(data))
+        .pipe(first())
+            .subscribe(
+              (_data: any) => {
+                    this.alertService.success('Registration successful', true);
+                    this.router.navigate(['/login']);
+                },
+              (                error: string) => {
+                    this.alertService.error(error);
+                    this.loading = false;
+                });
               
     }
     
