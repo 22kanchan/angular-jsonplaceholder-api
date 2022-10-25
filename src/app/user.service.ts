@@ -11,15 +11,16 @@ export class UserService {
   constructor( private http: HttpClient) { }
  
   getAll(){
-    return this.http.get<User[]>(`/user`);
+    console.log('userservice');
+    return this.http.get<User[]>(`/users`);
   }
 
   register(user: User){
     
-    return this.http.post(`/user/register`,user);
+    return this.http.post(`/users/register`,user);
   }
 
   delete(id:number){
-    return this.http.delete(`/user/${id}`);
+    return this.http.delete(`/users/${id}`);
   }
 }

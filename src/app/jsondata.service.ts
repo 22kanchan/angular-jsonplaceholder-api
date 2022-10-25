@@ -8,11 +8,13 @@ export class JsondataService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers() {
+  getUserList() {
+    console.log('jsonservice');
     return this.http.get('https://jsonplaceholder.typicode.com/users');
   }
 
   getUser(userId: string) {
+    console.log('getuser');
     return this.http.get('https://jsonplaceholder.typicode.com/users/' + userId);
   }
 

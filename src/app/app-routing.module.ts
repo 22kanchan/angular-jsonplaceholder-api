@@ -8,6 +8,7 @@ import { PhotosComponent } from './photos/photos.component';
 import { TodosComponent } from './todos/todos.component';
 import { LoginComponent } from './login/login.component';
 import {RegisterComponent} from './register/register.component';
+import { AuthGuard } from './_helpers/auth.gaurd';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
     path: '',
     component: UsersComponent
   },
+
    {
     path: 'posts',
     component: PostsComponent
@@ -31,19 +33,20 @@ const routes: Routes = [
     path: 'todos',
     component: TodosComponent
   },
+  
   {
-    path: 'user-details/:id',
-    component: UsersDetailsComponent
+  path: 'register',
+  component:RegisterComponent
   },
   {
     path: 'login',
     component: LoginComponent
   },
   {
-  path: 'register',
-  component:RegisterComponent
+    path: 'user-details/:id',
+    component: UsersDetailsComponent
   }
-
+  
 ];
 
 @NgModule({

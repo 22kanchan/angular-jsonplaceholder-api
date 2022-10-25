@@ -30,15 +30,19 @@ export class RegisterComponent implements OnInit {
     private dialog:MatDialog,
     private userService: UserService,
     private alertService: AlertService
-    ) { if (this.authenticationService.currentUserValue) { 
-      this.router.navigate(['/']);}}
+    ) { 
+      // if (this.authenticationService.currentUserValue) { 
+      // this.router.navigate(['/']);}
+    }
 
   ngOnInit(){
     this.registerForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      name: ['', Validators.required],
+      email: ['', Validators.required],
       username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      address: ['', Validators.required],
+      phone: ['', Validators.required],
   });
   }
   
@@ -62,9 +66,8 @@ console.log("hello",this.registerForm.value);
         this.loading = true;
         this.userService.register(this.registerForm.value)
         // .subscribe((data)=>console.log(data))
-        .pipe(first())
-            .subscribe(
-              (_data: any) => {
+           .subscribe(
+              (_data) => {
                     this.alertService.success('Registration successful', true);
                     this.router.navigate(['/login']);
                 },

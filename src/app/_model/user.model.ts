@@ -2,7 +2,9 @@ export class User {
     id!: number;
     username!: string;
     password!: string;
-    firstName!: string;
-    lastName!: string;
+    name!: string;
+    phone!: number;
+    address!: string;
+    email!:string;
     token!: string;
 }
