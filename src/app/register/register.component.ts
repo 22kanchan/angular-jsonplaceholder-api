@@ -7,8 +7,8 @@ import { AlertService } from '../alert.service';
 import { UserService } from '../user.service';
 import { first } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-
-
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { User } from '../_model/user.model';
 
 
 
@@ -38,11 +38,17 @@ export class RegisterComponent implements OnInit {
   ngOnInit(){
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, 
+        Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      address: ['', Validators.required],
-      phone: ['', Validators.required],
+      // address: {
+        street:['', Validators.required],
+        city:['', Validators.required],
+        suite:['',Validators.required],
+        zipcode:['',Validators.required],
+      // },
+      phone: ['', RxwebValidators.pattern({expression:{'onlyDigit': /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/} })],
   });
   }
   
@@ -62,6 +68,14 @@ get f() { return this.registerForm.controls; }
         if (this.registerForm.invalid) {
             return;
         }
+        this.registerForm.value.address={city:this.registerForm.value.city,
+        street:this.registerForm.value.street,
+      suite:this.registerForm.value.suite,
+    zipcode:this.registerForm.value.zipcode};
+    delete this.registerForm.value.city;
+    delete this.registerForm.value.street;
+    delete this.registerForm.value.zipcode;
+    delete this.registerForm.value.suite;
 console.log("hello",this.registerForm.value);
         this.loading = true;
         this.userService.register(this.registerForm.value)

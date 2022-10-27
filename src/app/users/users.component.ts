@@ -17,12 +17,9 @@ export class UsersComponent implements OnInit {
  
   constructor(private data: JsondataService,
     private router:Router) {
-console.log('hiiiiiiiiiiiiiiiiiiiiiiiiii');
    }
 
   ngOnInit(){
-   
-    console.log('helloooooooo');
     this.getUserList();
   }
 
@@ -38,15 +35,17 @@ console.log('hiiiiiiiiiiiiiiiiiiiiiiiiii');
   localUser(){
     
     let dataList:any = localStorage.getItem('users');
+    console.log('datalist',dataList);
     if(dataList!=undefined && dataList!=null){
       dataList = JSON.parse(dataList);
       for(let i= 0; i< dataList.length;i++)
       {
+        
         let rowData={name:dataList[i].name,
                      id:dataList[i].id,
+                     address:dataList[i].address,
                      email:dataList[i].email,
-                     phone:dataList[i].phone,
-                     address:dataList[i].address}
+                     phone:dataList[i].phone,};
         this.users.push(rowData);
         console.log(this.users);
       }

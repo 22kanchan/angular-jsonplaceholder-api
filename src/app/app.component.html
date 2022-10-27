@@ -1,4 +1,6 @@
 <div id="header">
+  <p>Date:{{ customDate | date: "dd:MMM:yyyy hh-mm-ss z" }}
+      </p>
   <app-header></app-header>
 </div>
 
@@ -9,10 +11,6 @@
   <div id="content">
     <router-outlet></router-outlet>
     </div>
-    <!-- <ngb-pagination 
-  [collectionSize]="70" 
-  [(page)]="page" 
-  [boundaryLinks]="true" >
-</ngb-pagination> -->
+  
 </div>
 

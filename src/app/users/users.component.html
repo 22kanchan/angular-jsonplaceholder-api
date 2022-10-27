@@ -6,7 +6,7 @@
       <th>Name</th>
       <th>Email</th>
       <th>Phone</th>
-      <th>Website</th>
+      <th>Address</th>
     </tr>
     <tr *ngFor="let Users of users">
       <td>{{ Users.id }}</td>
@@ -15,7 +15,8 @@
       </td>
       <td>{{ Users.email }}</td>
       <td>{{ Users.phone }}</td> 
-      <td><a href="http://{{ users.website }}">{{ Users.website }}</a></td>
+      <!-- <td><a href="http://{{ users.website }}">{{ Users.website }}</a></td> -->
+      <td>{{ Users.address.city }}</td> 
     </tr>
     
   </table>
