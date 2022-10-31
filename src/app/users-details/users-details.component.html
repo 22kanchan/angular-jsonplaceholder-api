@@ -1,33 +1,34 @@
-
 <div class="tabbable">
-  <ul class="nav nav-tabs">
-     <li class="active" (click)="getDataList(0)">
-      <a  data-toggle="tab" default-value="0">Posts</a></li>
-     <li (click)="getDataList(1)">
-      <a  data-toggle="tab">Comments</a></li>
-     <li (click)="getDataList(2)"><a  data-toggle="tab">Albums</a></li>
-     <li (click)="getDataList(3)"><a  data-toggle="tab">Photos</a></li>
-     <li (click)="getDataList(4)"><a  data-toggle="tab">Todos</a></li>
-  </ul>
+      <ul class="nav nav-tabs">
+            <li class="active" (click)="getDataList(0)">
+                  <a data-toggle="tab" default-value="0">Posts</a>
+            </li>
+            <li (click)="getDataList(1)">
+                  <a data-toggle="tab">Comments</a>
+            </li>
+            <li (click)="getDataList(2)"><a data-toggle="tab">Albums</a></li>
+            <li (click)="getDataList(3)"><a data-toggle="tab">Photos</a></li>
+            <li (click)="getDataList(4)"><a data-toggle="tab">Todos</a></li>
+      </ul>
 
-  <div class="tab-content">
-   <div *ngIf="activeTab==0">
-      <div *ngFor="let row of dataList| paginate:{itemsPerPage:10, currentPage: page}">
-         <div class="tab-pane active" id="tab1">
-              {{ row.title }} 
-            
-         </div>
-         <div class="tab-pane active" id="tab1">
-               {{ row.body }} 
-         
-         </div>
-          <div class="tab-pane active" id="tab1">
-               <img [src]="row.thumbnailUrl "/>
-         
-         </div>
-   </div>
-   
-   </div>
-  </div>
-  <pagination-controls (pageChange)="page=$event"></pagination-controls>
+      <div class="tab-content">
+            <div *ngIf="activeTab==0">
+                  <div *ngFor="let row of dataList| paginate:{itemsPerPage:10, currentPage: page}">
+                        <div class="tab-pane active" id="tab1">
+                              {{ row.title }}
+
+                        </div>
+                        <div class="tab-pane active" id="tab1">
+                              {{ row.body }}
+
+                        </div>
+                        <div class="tab-pane active" id="tab1">
+                              <img [src]="row.thumbnailUrl " />
+
+                        </div>
+                  </div>
+
+            </div>
+      </div>
+      <pagination-controls (pageChange)="page=$event"></pagination-controls>
 </div>

@@ -1,4 +1,26 @@
 <div>
-    <button type="button" class="btn btn-primary-outline pull-right" [routerLink]="['/login']"><i class="fa fa-plus"></i>Login</button>
-    <button type="button" class="btn btn-primary-outline pull-right" [routerLink]="['/register']"><i class="fa fa-plus"></i>Register</button>
+<nav class="navbar">
+  Date:{{ customDate | date: "dd:MMM:yyyy hh-mm-ss z" }} 
+  Date:{{ customDate | date: "short" }}
+  Date:{{ customDate | date: "long" }}
+ 
+  <div class="btn-toolbar" *ngIf="!currentUser">
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary pull-right" [routerLink]="['/login']">
+        <i class="fa fa-plus"></i>Login
+      </button>
+    </div>
+    <br>
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary pull-right" [routerLink]="['/register']">
+    <i class="fa fa-plus"></i>Register
+  </button>
+</div>
+  
+</div>
+<div class="navbar-nav" *ngIf="currentUser">
+  <h3>Hi {{currentUser.username}}!</h3>
+  <a class="nav-item nav-link" (click)="logout()">Logout</a>
+</div>
+</nav>
 </div>

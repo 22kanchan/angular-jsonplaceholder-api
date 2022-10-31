@@ -7,6 +7,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
 
 // Component
 import { AppComponent } from './app.component';
@@ -43,7 +44,7 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     PhotosComponent,
     TodosComponent,
     RegisterComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +56,7 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     BrowserAnimationsModule,
     NgxPaginationModule,
     MatDialogModule,
+    CommonModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

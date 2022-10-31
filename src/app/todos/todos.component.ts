@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent implements OnInit {
- todos : any;
- page:number=1;
+  todos: any;
+  page: number = 1;
   constructor(private data: JsondataService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.data.gettodos().subscribe(
       (data: any) => this.todos = data
     )

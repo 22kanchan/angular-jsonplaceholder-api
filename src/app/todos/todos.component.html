@@ -1,16 +1,17 @@
 <div class="container">
-    <h1>TODOs</h1>
-    <table class="table table-bordered">
-      <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Completed</th>
-      </tr>
-      <tr *ngFor="let todos of todos| paginate:{itemsPerPage:10, currentPage: page}">
-        <td>{{ todos.id }}</td>
-        <td>{{ todos.title }}</td>
-        <td>{{ todos.completed }}</td>
-      </tr>
-    </table>
-    <pagination-controls (pageChange)="page=$event"></pagination-controls>
- </div>
+  <h1>TODOs</h1>
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Completed</th>
+    </tr>
+    <!-- | paginate:{itemsPerPage:10, currentPage: page} -->
+    <tr *ngFor="let todos of todos | paginate:{itemsPerPage:10, currentPage: page}">
+      <td>{{ todos.id }}</td>
+      <td>{{ todos.title }}</td>
+      <td>{{ todos.completed }}</td>
+    </tr>
+  </table>
+  <pagination-controls (pageChange)="page=$event"></pagination-controls>
+</div>

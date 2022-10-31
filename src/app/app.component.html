@@ -1,20 +1,12 @@
 <div id="header">
-  <p>Date:{{ customDate | date: "dd:MMM:yyyy hh-mm-ss z" }}
-      </p>
-      <!-- <p>Date:{{ customDate | date: "short" }}
-      </p>
-      <p>Date:{{ customDate | date: "long" }}
-      </p> -->
   <app-header></app-header>
 </div>
 
 <div id="container">
   <!-- <app-header></app-header> -->
   <app-sidebar></app-sidebar>
-
   <div id="content">
     <router-outlet></router-outlet>
-    </div>
-  
-</div>
+  </div>
 
+</div>

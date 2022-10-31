@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { Router,NavigationEnd } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
-  
+
   constructor() { }
 
   ngOnInit() {

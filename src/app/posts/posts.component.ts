@@ -9,7 +9,7 @@ import { JsondataService } from '../jsondata.service';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  page:number = 1; 
+  page: number = 1;
 
   posts: any;
 
