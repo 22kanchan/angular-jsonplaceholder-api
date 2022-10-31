@@ -42,13 +42,13 @@ export class RegisterComponent implements OnInit {
       Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
+      phone: ['', RxwebValidators.pattern({ expression: { 'onlyDigit': /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/ } })],
       // address: {
       street: ['', Validators.required],
       city: ['', Validators.required],
       suite: ['', Validators.required],
       zipcode: ['', Validators.required],
       // },
-      phone: ['', RxwebValidators.pattern({ expression: { 'onlyDigit': /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/ } })],
     });
   }
 
@@ -86,11 +86,11 @@ export class RegisterComponent implements OnInit {
         (_data) => {
           this.alertService.success('Registration successful', true);
           this.router.navigate(['/login']);
-        },
-        (error: string) => {
-          this.alertService.error(error);
-          this.loading = false;
         });
+        // (error: string) => {
+        //   this.alertService.error(error);
+        //   this.loading = false;
+        // );
 
   }
 

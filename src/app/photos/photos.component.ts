@@ -33,6 +33,7 @@ export class PhotosComponent implements OnInit {
       let limit = content!.scrollHeight - content!.clientHeight;
       if (scrollPos === limit) {
         this.currentPage += this.pageSize;
+        console.log('currentPage',this.currentPage);
         forkJoin([this.items$.pipe(take(1)), this.dataService.getPhotos(this.currentPage, this.pageSize)]).subscribe((data: Array<Array<any>>) => {
           const newArr = [...data[0], ...data[1]];
           this.obsArray.next(newArr);

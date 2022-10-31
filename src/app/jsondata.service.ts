@@ -27,7 +27,7 @@ export class JsondataService {
   }
 
   public getPhotos(pageNumber: number,pageSize: number) {
-    return this.http.get('https://jsonplaceholder.typicode.com/photos');
+    return this.http.get('https://jsonplaceholder.typicode.com/photos?_start=${pageNumber}&_limit=${pageSize}');
   }
   gettodos() {
     return this.http.get('https://jsonplaceholder.typicode.com/todos');

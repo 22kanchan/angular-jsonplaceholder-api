@@ -12,23 +12,13 @@
   </table>
   <pagination-controls (pageChange)="page=$event"></pagination-controls>
 </div> -->
-<div class="container">
-  <!-- <div *ngfor ="let item of items$ | async">
+<div class="items">
+  <div *ngFor="let item of items$ | async">
       <b>ID: </b> {{item.id}}<br>
       <b>Title: </b>{{item.title}}<br>
-      <img src="{{item.thumbnailUrl}}" alt=""> -->
-      <table class="table table-bordered">
-        <tr>
-          <th>Title</th>
-          <th>Thumbnail Url</th>
-        </tr>
-        <tr *ngFor="let item of items$ | async">
-          <td>{{ item.title }}</td>
-          <td><img [src]="item.thumbnailUrl" /></td>
-        </tr>
-      </table>
+      <img src="{{item.thumbnailUrl}}" alt="">
       <br>
       <br>
       <br>
-      </div>
-  
+  </div>
+</div>
