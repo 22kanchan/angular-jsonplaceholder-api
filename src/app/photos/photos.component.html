@@ -1,16 +1,15 @@
 <!-- <div class="container">
   <h1>Photos</h1>
-  <table class="table table-bordered">
+  <table class="items">
     <tr>
       <th>Title</th>
       <th>Thumbnail Url</th>
     </tr>
-    <tr *ngFor="let photos of photos| paginate:{itemsPerPage:10, currentPage: page}">
-      <td>{{ photos.title }}</td>
-      <td><img [src]="photos.thumbnailUrl" /></td>
+    <tr *ngFor="let item of items$ | async">
+      <td>{{ item.title }}</td>
+      <td><img [src]="item.thumbnailUrl" /></td>
     </tr>
   </table>
-  <pagination-controls (pageChange)="page=$event"></pagination-controls>
 </div> -->
 <div class="items">
   <div *ngFor="let item of items$ | async">
