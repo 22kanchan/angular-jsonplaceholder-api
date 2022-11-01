@@ -10,7 +10,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class SidebarComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit() {
   }

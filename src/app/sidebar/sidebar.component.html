@@ -1,4 +1,4 @@
-<nav>
+<nav *ngIf="!(router.url === '/login' || router.url === '/register')">
   <ul>
     <li>
       <!-- <a routerLink="" [class.activated]="currentUrl == '/'"> -->
