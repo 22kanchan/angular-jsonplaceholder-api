@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 // Component
 import { AppComponent } from './app.component';
@@ -56,7 +58,9 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     BrowserAnimationsModule,
     NgxPaginationModule,
     MatDialogModule,
-    CommonModule
+    CommonModule,
+    MatSortModule,
+    MatTableModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

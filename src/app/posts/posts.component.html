@@ -1,18 +1,23 @@
-<div class="container">
-  <h1>POSTS</h1>
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="datasource" matSort>
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
 
-  <table class="table table-bordered">
-    <tr>
-      <th>ID</th>
-      <th>Title</th>
-      <th>Body</th>
-    </tr>
-    <tr *ngFor="let post of posts| paginate:{itemsPerPage:10, currentPage: page}">
-      <td>{{ post.id }}</td>
-      <td>{{ post.title }}</td>
-      <td>{{ post.body }}</td>
-    </tr>
-  </table>
+    <!-- Position Column -->
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.title }} </mat-cell>
+    </ng-container>
 
-  <pagination-controls (pageChange)="page=$event"></pagination-controls>
+    <!-- Name Column -->
+    <ng-container matColumnDef="userId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Name
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.userId }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
 </div>
